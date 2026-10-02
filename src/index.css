@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /*
+     * Brand palette matched to the "Life Coach Manjiree" logo:
+     * vivid script purple (#8b2fd9-ish) on a soft lavender-white background.
+     * Kept de-saturated at the neutrals and vivid only at primary/accent
+     * so the UI stays clean while reading as the same brand as the logo.
+     */
+    --background: 280 45% 98%;
+    --foreground: 265 20% 18%;
+
+    --card: 280 40% 97%;
+    --card-foreground: 265 20% 18%;
+
+    --popover: 280 45% 98%;
+    --popover-foreground: 265 20% 18%;
+
+    --primary: 271 70% 50%;
+    --primary-foreground: 280 45% 98%;
+
+    --secondary: 280 50% 93%;
+    --secondary-foreground: 265 20% 18%;
+
+    --muted: 275 25% 94%;
+    --muted-foreground: 265 12% 46%;
+
+    --accent: 271 45% 92%;
+    --accent-foreground: 271 55% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 275 25% 90%;
+    --input: 275 25% 90%;
+    --ring: 271 70% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 280 35% 97%;
+    --sidebar-foreground: 265 20% 20%;
+    --sidebar-primary: 271 70% 50%;
+    --sidebar-primary-foreground: 280 45% 98%;
+    --sidebar-accent: 271 45% 93%;
+    --sidebar-accent-foreground: 271 55% 25%;
+    --sidebar-border: 275 20% 90%;
+    --sidebar-ring: 271 70% 50%;
+
+    --sage: 271 70% 50%;
+    --sage-light: 271 45% 92%;
+    --sage-dark: 271 60% 28%;
+    --ivory: 280 45% 98%;
+    --warm-beige: 280 50% 93%;
+    --forest: 271 55% 18%;
+  }
+
+  .dark {
+    --background: 265 28% 10%;
+    --foreground: 280 20% 95%;
+
+    --card: 265 26% 13%;
+    --card-foreground: 280 20% 95%;
+
+    --popover: 265 28% 10%;
+    --popover-foreground: 280 20% 95%;
+
+    --primary: 271 75% 62%;
+    --primary-foreground: 265 28% 10%;
+
+    --secondary: 265 22% 18%;
+    --secondary-foreground: 280 20% 95%;
+
+    --muted: 265 22% 18%;
+    --muted-foreground: 275 12% 60%;
+
+    --accent: 271 35% 24%;
+    --accent-foreground: 280 20% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 265 20% 22%;
+    --input: 265 20% 22%;
+    --ring: 271 75% 62%;
+
+    --sidebar-background: 265 30% 8%;
+    --sidebar-foreground: 280 18% 93%;
+    --sidebar-primary: 271 75% 62%;
+    --sidebar-primary-foreground: 265 28% 10%;
+    --sidebar-accent: 265 22% 16%;
+    --sidebar-accent-foreground: 280 18% 93%;
+    --sidebar-border: 265 20% 18%;
+    --sidebar-ring: 271 75% 62%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-6 md:py-8;
+  }
+
+  .container-narrow {
+    @apply max-w-6xl mx-auto;
+  }
+
+  .section-heading {
+    @apply text-center max-w-2xl mx-auto mb-6;
+  }
+
+  .gradient-sage {
+    background: linear-gradient(135deg, hsl(var(--sage-light)) 0%, hsl(var(--background)) 100%);
+  }
+
+  .gradient-warm {
+    background: linear-gradient(135deg, hsl(var(--warm-beige)) 0%, hsl(var(--ivory)) 100%);
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl shadow-sm;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes hero-title-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-title-in {
+  animation: hero-title-in 0.7s ease-out both;
+}
